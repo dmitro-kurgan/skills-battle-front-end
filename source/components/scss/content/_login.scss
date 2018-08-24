@@ -1,0 +1,101 @@
+.wrapper {
+	&--login {
+
+	}
+}
+.login, .return {
+	width: 700px;
+	margin: auto;
+	&__form {
+		.form-group {
+			&:first-child {
+				margin-bottom: 15px;
+			}
+		}
+		.form-control {
+			padding-left: 20px;
+			padding-right: 20px;
+			text-align: center;
+			width: calc(100% - 40px);
+			height: 69px;
+			border: none;
+			border-radius: 5px;
+			font-size: 29px;
+			box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
+			@include addPrefixPlaceholder(placeholder, font-size, 29px);
+			@include addPrefixPlaceholder(placeholder, color, #adadad);
+			&:focus {
+				outline: none;
+				border: none;
+			}
+			@media screen and (max-width: 1239px),  screen and (max-height: 950px) {
+				height: 60px;
+				font-size: 24px;
+				@include addPrefixPlaceholder(placeholder, font-size, 24px);
+			}
+		}
+	}
+	&__key {
+		width: 490px;
+		margin: 25px auto auto;
+		@media screen and (max-width: 1239px),  screen and (max-height: 950px) {
+			width: 395px;
+			margin: 20px auto auto;
+		}
+		.cancel {
+			&:before {
+				background-color: #e31023;
+			}
+		}
+		.clear {
+			&:before {
+				background-color: #ffdf00;
+			}
+		}
+		.enter {
+			&:before {
+				background-color: #00ad5d;
+			}
+		}
+		ul {
+			float:left;
+			li {
+				float: left;
+				margin-right: 20px;
+				margin-top: 15px;
+				@media screen and (max-width: 1239px),  screen and (max-height: 950px) {
+			    	margin-right: 15px;
+				    margin-top: 8px;
+				}
+				&:nth-child(3n+3) {
+					margin-right: 0px;
+				}
+			}
+		}
+		div {
+			width: 150px;
+			height: 98px;
+			line-height: 98px;
+			text-align: center;
+			border-radius: 5px;
+			border: 1px solid #cdcdcd;
+			background: linear-gradient(#fff 0%, #e6e8ea 100%);
+			font: 700 normal 57px $CodePro;
+			color: #454545;
+			text-transform: uppercase;
+			@media screen and (max-width: 1239px),  screen and (max-height: 950px) {
+			    width: 121px;
+			    font-size: 52px;
+			    height: 75px;
+			    line-height: 75px;
+			}
+			&:focus {
+				outline: none;
+			}
+			&:active {
+				outline: none;
+				background: linear-gradient(#e7e7e7 0%, #c3c3c3 100%);
+			}			
+		}
+	}
+}

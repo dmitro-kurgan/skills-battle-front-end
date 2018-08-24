@@ -1,0 +1,27 @@
+extends ./templates/base
+
+block title
+	title Print receipt
+
+include ./templates/mixins
+
+block main
+	.wrapper.wrapper--bill
+		+header()
+			block headTitle
+				h1.header__title Print receipt
+		.content.container
+			section.bill
+				.bill__block
+					p.
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+					img(src=require("./components/images/bill.svg"), alt="bill")
+		footer
+			.footer
+				.footer__content.container
+					.footer__left
+					.footer__center
+					.footer__right
+						a(href="index.html").btn.btn--red continue
+				.footer__bottom
+					p Status message...

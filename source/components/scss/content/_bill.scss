@@ -1,0 +1,29 @@
+.wrapper {
+	&--bill {
+
+	}
+}
+.bill{
+	&__block {
+		max-width: 520px;
+		margin: auto;
+		text-align: center;
+		p {
+			font-size: 36px;
+			color: #9b9b9b;
+			margin-bottom: 60px;
+			@media screen and (max-width: 1239px),  screen and (max-height: 950px) {
+				font-size: 28px;
+				margin-bottom: 30px;
+			}
+		}
+		img {
+			width: 202px;
+			height: 200px;
+			@media screen and (max-width: 1239px),  screen and (max-height: 950px) {
+				width: 178px;
+				height: 180px;
+			}
+		}
+	}
+}

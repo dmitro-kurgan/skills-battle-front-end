@@ -1,0 +1,47 @@
+// VARIABLES
+//fonts
+
+$font: Code, Arial, sans-serif;
+$Bukhari: BukhariScript, Arial, sans-serif;
+$Barley: BarleyScript, Arial, sans-serif;
+$CodePro: CodePro, Arial, sans-serif;
+
+$main_font: Circe, Arial, sans-serif;
+$second_font: Code, Arial, sans-serif;
+
+//other
+$main_color: #fff;
+$light-grey: #f3f4f6;
+$grey: #cdcdcd;
+$orange: #ffad2e;
+$main_transition: .3s all ease;
+// $title-spacing: 3px;
+
+// $full-hd: "screen and (max-width: 1869px)";
+// $desctop-lg: "screen and (max-width: 1520px)";
+$desctop-lg: "screen and (max-width: 1569px)";
+$desctop-md: "screen and (max-width: 1369px)";
+
+$desctop: "screen and (max-width: 1199px)";
+$tablet: "screen and (max-width: 991px)";
+$mobile: "screen and (max-width: 767px)";
+
+//MIXINS
+
+$prefixes: "-webkit-", "-o-", "-moz-", "-ms-";
+
+@mixin addPrefix($item, $val) {
+	@each $tmp in $prefixes {
+		#{$tmp}#{$item}:#{$val};
+	}
+	#{$item}: $val;
+}
+
+$prefixes-placeholder: "&::-webkit-input-", "&::-moz-", "&:-moz-", "&:-ms-";
+
+@mixin addPrefixPlaceholder($placeholder, $item, $val) {
+	@each $tmp in $prefixes-placeholder {
+		#{$tmp}#{$placeholder}{#{$item}:#{$val}};
+	}
+	#{$placeholder}{#{$item}: $val};
+}

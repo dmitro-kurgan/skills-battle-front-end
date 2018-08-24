@@ -1,0 +1,83 @@
+block vars
+
+doctype html
+
+html(lang="en")
+	head
+		block title
+			title Index
+		meta(charset="UTF-8")
+		meta(name="viewport", content="initial-scale=1.0, width=device-width, user-scalable=no")
+		link(rel='apple-touch-icon', sizes='57x57', href=require('./components/images/favicons/apple-icon-57x57.png'))
+		link(rel='apple-touch-icon', sizes='60x60', href=require('./components/images/favicons/apple-icon-60x60.png'))
+		link(rel='apple-touch-icon', sizes='72x72', href=require('./components/images/favicons/apple-icon-72x72.png'))
+		link(rel='apple-touch-icon', sizes='76x76', href=require('./components/images/favicons/apple-icon-76x76.png'))
+		link(rel='apple-touch-icon', sizes='114x114', href=require('./components/images/favicons/apple-icon-114x114.png'))
+		link(rel='apple-touch-icon', sizes='120x120', href=require('./components/images/favicons/apple-icon-120x120.png'))
+		link(rel='apple-touch-icon', sizes='144x144', href=require('./components/images/favicons/apple-icon-144x144.png'))
+		link(rel='apple-touch-icon', sizes='152x152', href=require('./components/images/favicons/apple-icon-152x152.png'))
+		link(rel='apple-touch-icon', sizes='180x180', href=require('./components/images/favicons/apple-icon-180x180.png'))
+		link(rel='icon', type='image/png', sizes='192x192', href=require('./components/images/favicons/android-icon-192x192.png'))
+		link(rel='icon', type='image/png', sizes='32x32', href=require('./components/images/favicons/favicon-32x32.png'))
+		link(rel='icon', type='image/png', sizes='96x96', href=require('./components/images/favicons/favicon-96x96.png'))
+		link(rel='icon', type='image/png', sizes='16x16', href=require('./components/images/favicons/favicon-16x16.png'))
+		link(rel='manifest', href='/manifest.json')
+		meta(name='msapplication-TileColor', content='#ffffff')
+		meta(name='msapplication-TileImage', content='/ms-icon-144x144.png')
+		meta(name='theme-color', content='#ffffff')
+
+	body(style="display:none;")
+		block main
+		script.
+			function startDate() {
+				var tm = new Date(),
+				d = tm.getDate(),
+				m = tm.getMonth(),
+				y = tm.getFullYear();
+				d = checkDate(d),
+				m = checkDate(m),
+				y = checkDate(y);
+				document.getElementById('date').innerHTML = d + '/' + m + '/' + y;
+				t = setTimeout('startDate()', 500);
+			}
+			function checkDate(i) {
+				if (i < 10) {
+					i = '0' + (i + 1);
+				}
+				return i;
+			}
+			function startTime() {
+				var tm = new Date(),
+				h = tm.getHours(),
+				m = tm.getMinutes(),
+				s = tm.getSeconds(),
+				h = checkTime(h),
+				m = checkTime(m),
+				s = checkTime(s),
+				ampm = "";
+
+				if (h < 12) {
+					ampm = 'AM';
+				}
+				else {
+					ampm = 'PM'
+				}
+				if (h == 0) {
+					h = 12;
+				}
+
+				if (h > 12) h = h - 12
+
+				document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+				document.getElementById('ampm').innerHTML = ampm;
+				t = setTimeout('startTime()',500);				
+			}
+			function checkTime(i) {
+				if (i < 10) {
+					i = "0" + i;
+				}
+				return i;
+			}
+			startTime();
+			startDate();
+		block script

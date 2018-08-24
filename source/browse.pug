@@ -1,0 +1,28 @@
+extends ./templates/base
+
+block title
+	title Browse
+
+include ./templates/mixins
+
+block vars
+
+block main
+	.wrapper.wrapper--browse
+		+header()
+			block headTitle
+				.header__title
+					h1.header__title Browse
+		.content.container
+			section.browse
+				.browse__block
+					iframe(src='https://www.washingtonpost.com/')
+		footer
+			.footer
+				.footer__content.container
+					.footer__left
+						a(href="index.html").btn.btn--red back
+					.footer__center
+					.footer__right
+				.footer__bottom
+					p Status message...

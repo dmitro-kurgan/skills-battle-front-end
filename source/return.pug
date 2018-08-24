@@ -1,0 +1,108 @@
+extends ./templates/base
+
+block title
+	title Return internet Hash
+
+include ./templates/mixins
+
+block vars
+
+block main
+	.wrapper.wrapper--return
+		+header()
+			block headTitle
+				.header__title
+					h1.header__title Return internet Hash
+		.content.container
+			section.return.return
+				.return__block
+					.return__form
+						form
+							.form-group
+								input(type="text", placeholder='Input return amount', autofocus).form-control#login
+							button.btn(type='submit') Press to input possible amount
+					.return__key.clearfix
+						- var arraykey = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0']
+						ul.clearfix
+							each item in arraykey
+								li
+									div(onmousedown="triggerkey(event,'" + item + "')")= item
+							li(class='clear')
+								div(onmousedown='backspace(event)') <
+							li(class='cancel')
+								div(onmousedown='cancel(event)') C
+		footer
+			.footer
+				.footer__content.container
+					.footer__left
+						a(href="#", disabled).btn back
+					.footer__center
+					.footer__right
+						a(href="bill.html").btn.btn--red continue
+				.footer__bottom
+					p Status message...
+block script
+	script.
+		function triggerkey(event, key) {
+		  event.preventDefault();
+		  var focused = getFocusedInput();
+		  insertText(focused, key);
+		}
+
+		function insertText(input, text) {
+		  if (input == undefined) {
+		    return;
+		  }
+		  var scrollPos = input.scrollTop;
+		  var pos = 0;
+		  pos = input.selectionStart;
+		  var front = (input.value).substring(0, pos);
+		  var back = (input.value).substring(pos, input.value.length);
+		  input.value = front + text + back;
+		  pos = pos + text.length;
+		  input.selectionStart = pos;
+		  input.selectionEnd = pos;
+		  input.scrollTop = scrollPos;
+		}
+
+		function backspace(event) {
+		  event.preventDefault();
+		  var input = getFocusedInput();
+		  if (input == undefined) {
+		    return;
+		  }
+		  var start = input.selectionStart - 1;
+		  if (start == -1) {
+		    return;
+		  }
+		  var value = input.value;
+		  var newValue = value.substr(0, start) + value.substr(start + 1);
+		  input.value = newValue;
+		  input.selectionStart = start;
+		  input.selectionEnd = start;
+		  input.scrollTop = start;
+		}
+
+		function cancel(event) {
+			event.preventDefault();
+			var input = getFocusedInput();
+			if (input == undefined) {
+				return;
+			}
+			var start = input.selectionStart - 1;
+			if (start == -1) {
+				return;
+			}
+			var value = input.value;
+			var newValue = value = '';
+			input.value = newValue
+		}
+
+		function getFocusedInput() {
+		  var focused = document.activeElement;
+		  if (!focused || focused == document.body)
+		    focused = null;
+		  else if (document.querySelector)
+		    focused = document.querySelector("input:focus");
+		  return focused;
+		}

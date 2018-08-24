@@ -1,0 +1,46 @@
+extends ./templates/base
+
+block title
+	title Index
+
+include ./templates/mixins
+
+block vars
+
+block main
+	.wrapper.wrapper--index
+		+header()
+			block headTitle
+				h1.header__title W3 Free Info Kiosk
+		.content.container
+			section.brands
+				.brands__block
+					ul.clearfix
+						mixin li(name, link)
+							li.brands__item
+								a(href= link)
+									img(src=require("./components/images/" + name + ".svg"), alt= name)
+						+li('usa-today', 'browse.html')
+						+li('espn', 'browse.html')
+						+li('natgeo', 'browse.html')
+						+li('washington_post', 'browse.html')
+						li.brands__item.brands__item--crypto
+							a(href="browse.html")
+								span Cryptofeels.net
+						li.brands__item.brands__item--skills-battle
+							a(href="enter.html")
+								span Skills
+									i Battle
+						+li('ca', 'browse.html')
+		footer
+			.footer
+				.footer__content.container
+					.footer__left
+						a(href="#").btn.btn--red Info
+					.footer__center
+						+lang
+					.footer__right
+						a(href="#").btn.btn--red 
+							p terms
+				.footer__bottom
+					p Status message...

@@ -1,0 +1,37 @@
+extends ./templates/base
+
+block title
+	title Registration
+
+include ./templates/mixins
+
+block main
+	.wrapper.wrapper--info
+		+header()
+			block headTitle
+				h1.header__title Registration
+		.content.container
+			section.info
+				.info__block
+					- for(var i = 0;i < 5;i++) {
+						p.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et tincidunt leo. Suspendisse non pretium odio. Donec at vestibulum tellus. Aliquam facilisis ullamcorper turpis, in dictum enim aliquam ut. Suspendisse potenti. Nunc id orci at velit dictum interdum. Integer quis nunc accumsan libero consequat laoreet. Nullam efficitur leo eget ante fringilla, sed elementum libero pellentesque. Vestibulum ornare, massa viverra semper eleifend, leo nulla vulputate est, eu lobortis dolor ligula sed nisl.
+						p.
+							Vestibulum commodo ligula et lacinia tempor. Nam porta efficitur leo. Vivamus condimentum lorem non tempor pellentesque. Quisque lacinia diam imperdiet nisl porttitor pharetra. Cras vitae purus sit amet lacus fringilla ultricies. Phasellus lacinia orci in orci interdum, at ultricies metus scelerisque. Nunc sollicitudin nisi nec nisl feugiat, et vestibulum nunc posuere. Donec vel placerat nunc. Donec sit amet faucibus orci.
+						p.
+							Donec faucibus sapien vel molestie tincidunt. Nullam vehicula dui et libero vulputate lobortis. Vivamus nec posuere enim. Proin lacinia scelerisque velit, eu euismod est. Nulla eu quam eget lacus fermentum vestibulum. Sed tortor felis, iaculis vel mollis ac, ultricies vel lorem. Sed pretium orci dapibus velit semper bibendum.
+						p.
+							In id pellentesque leo. Vestibulum eget tortor vitae nibh dictum feugiat. Sed hendrerit magna nec ex lacinia, sollicitudin rhoncus leo mollis. Maecenas vitae orci massa. Fusce porttitor ligula eu blandit tincidunt. Fusce sed justo auctor, sodales nisl at, lacinia nibh. Phasellus non sapien elementum, vulputate enim aliquam, tincidunt enim. Morbi rhoncus ex nec tortor consectetur, ac porta velit faucibus. Duis est turpis, aliquam sit amet dapibus at, maximus sed risus. Fusce vitae mi fringilla lorem posuere pulvinar. In non tincidunt nulla. Phasellus eget finibus felis, sit amet ultricies tortor. Vestibulum tincidunt orci ligula, ac efficitur risus dignissim a. Ut pulvinar mollis magna semper finibus. Nunc scelerisque fermentum lorem eget feugiat. Aenean eu tempus nunc.
+						p.
+							Nam vel augue eget metus fringilla dapibus. Integer felis dui, lacinia eget augue luctus, tempus efficitur ex. Donec auctor sodales luctus. Aliquam ultrices consectetur sapien, sed convallis orci facilisis sit amet. Suspendisse hendrerit tincidunt neque, eu scelerisque lacus eleifend sed. Donec auctor tellus non neque rhoncus, vitae porttitor purus eleifend. Integer tempus nisi tellus, sed pulvinar tellus semper in. Sed pellentesque magna congue tortor lobortis, a pharetra sapien interdum. Donec faucibus, orci eget blandit condimentum, massa tellus ullamcorper mi, tempor posuere dolor tortor sit amet lacus. Nunc nulla ipsum, scelerisque vel risus ac, fermentum commodo nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque fringilla vulputate sem id ultricies. Suspendisse vehicula porta cursus.
+					- }
+		footer
+			.footer
+				.footer__content.container
+					.footer__left
+						a(href="enter.html").btn.btn--red back
+					.footer__center
+					.footer__right
+						a(href="bill.html").btn.btn--red continue
+				.footer__bottom
+					p Status message...

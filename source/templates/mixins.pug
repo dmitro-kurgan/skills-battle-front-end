@@ -1,0 +1,19 @@
+mixin header
+	header
+		.header
+			.header__content.container
+				.header__logo
+					a(href="#")
+						img(src=require("./components/images/logo.svg"), alt="")
+				block
+				.header__info
+					span.header__data#date
+					span.header__time
+						p#time
+						p#ampm
+mixin lang
+	.footer__lang
+		a(href="?lng=en")
+			img(src=require("./components/images/uk.svg"), alt="Great Britain")
+		a(href='?lng=es')
+			img(src=require("./components/images/spain.svg"), alt="Espana")

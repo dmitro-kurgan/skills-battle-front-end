@@ -1,0 +1,59 @@
+// =============================================================================
+// String Replace
+// =============================================================================
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+// =============================================================================
+// Font Face
+// =============================================================================
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf) {
+    $src: null;
+
+    $extmods: (
+        eot: "?",
+        // svg: "#" + str-replace($name, " ", "_")
+    );
+
+    $formats: (
+        otf: "opentype",
+        ttf: "truetype"
+    );
+
+    @each $ext in $exts {
+        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote("../" + $path + "." + $extmod)) format(quote($format)), comma);
+    }
+
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+}
+@include font-face("BukhariScript", fonts/BukhariScript, 400, normal);
+@include font-face("BarleyScript", fonts/BarleyScript, 400, normal);
+@include font-face("CodePro", fonts/CodePro-Bold, 700, normal);
+@include font-face("CodePro", fonts/CodePro-Black, 800, normal);
+@include font-face("CodePro", fonts/CodePro-Demo, 600, normal);
+@include font-face("Code", fonts/Code-Pro-LC, 400, normal);
+// @include font-face("Circe", fonts/Circe-Regular, 400, normal);
+// @include font-face("Circe", fonts/Circe-Bold, 700, normal);
+// @include font-face("Circe", fonts/Circe-ExtraBold, 800, normal);
+
+// @include font-face("Code", fonts/Code-Pro-Black-LC, 800, normal);
+
+
+
+
+// @include font-face("aFuturicaBook", fonts/aFuturicaBook, 400, normal);
+
+// @include font-face("Aquatico", fonts/aquatico, 400, normal);

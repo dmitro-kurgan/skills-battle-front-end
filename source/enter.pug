@@ -1,0 +1,31 @@
+extends ./templates/base
+
+block title
+	title Index
+
+include ./templates/mixins
+
+block vars
+	- var head = 'w3 Internet point'
+
+block main
+	.wrapper.wrapper--enter
+		+header()
+			block headTitle
+				.header__title
+					span Skills
+						i Battle
+		.content.container
+			section.enter
+				.enter__block
+					a(href="info.html").btn SIGN UP
+					a(href="login.html").btn SIGN IN
+		footer
+			.footer
+				.footer__content.container
+					.footer__left
+						a(href="index.html").btn.btn--red back
+					.footer__center
+					.footer__right
+				.footer__bottom
+					p Status message...

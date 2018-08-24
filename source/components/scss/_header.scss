@@ -1,0 +1,109 @@
+header {
+	.header {
+		background-color: #474747;
+		height: 10vh;
+		box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+		&__content {
+			max-width: 1120px;
+			height: inherit;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		&__logo, &__info {
+			width: 240px;
+		}
+		&__logo {
+			img {
+				height: 75px;
+				@media screen and (max-width: 1239px), screen and (max-height: 950px) {
+					height: 60px;
+				}
+			}
+		}
+		&__title {
+			font: 400 normal 42px $font;
+			text-transform: none;
+			color: #fff;
+			@media screen and (max-width: 1239px), screen and (max-height: 950px) {
+				font-size: 34px;
+			}
+			span {
+				font: 800 normal 60px $CodePro;
+				text-transform: uppercase;
+				position: relative;
+				top: -11px;
+				text-shadow: -7px 7px 7px rgba(0, 0, 0, 0.15);
+				@media screen and (max-width: 1239px), screen and (max-height: 950px) {
+					font-size: 42px;
+					top: -5px;
+				}
+			}
+			i {
+				position: absolute;
+				text-align: center;
+				top: 30px;
+				left: 0px;
+				right: 0px;
+				margin: auto;
+				text-transform: none;
+				font: 400 normal 50px $Barley;
+				background: linear-gradient(45deg, #ff1515 0%, #ff663e 100%);
+				@include addPrefix(background-clip, text);
+				-webkit-text-fill-color: transparent;
+				@media screen and (max-width: 1239px), screen and (max-height: 950px) {
+					font-size: 36px;
+					top: 22px;
+				}
+			}
+		}
+		&__info {
+			span {
+				font-size: 30px;
+				color: #fff;
+				display: block;
+				padding-left: 50px;
+				position: relative;
+				@media screen and (max-width: 1239px), screen and (max-height: 950px) {
+					font-size: 24px;
+					padding-left: 35px;
+				}
+				&:after {
+					content: '';
+					position: absolute;
+					top: 0px;
+					bottom: 0px;
+					left: 0px;
+					margin: auto;
+				}
+				&:first-child {
+					&:after {
+						background-image: url(../images/calendar.svg);
+						width: 22px;
+						height: 22px;
+					}
+				}
+				&:last-child {
+					margin-top: 10px;
+					@media screen and (max-width: 1239px), screen and (max-height: 950px) {
+						margin-top: 8px;
+					}
+					&:after {
+						background-image: url(../images/oclock.svg);
+						width: 25px;
+						height: 25px;
+					}
+				}
+			}
+		}
+		&__time {
+			p {
+				display: inline-block;
+				min-width: 83px;
+				& + p {
+					min-width: initial;
+				}
+			}
+		}
+	}
+}

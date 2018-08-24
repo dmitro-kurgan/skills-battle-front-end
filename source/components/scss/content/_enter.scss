@@ -1,0 +1,27 @@
+.wrapper {
+	&--enter {
+
+	}
+}
+.enter {
+	&__block {
+		text-align: center;
+		.btn {
+			// width: 649px;
+			width: 675px;
+			height: 105px;
+			box-shadow: none;
+			&:first-child {
+				border: 1px solid #c6c6c6;
+				background-color: #f6f6f6;
+				// margin-bottom: 50px;
+				margin-bottom: 30px;
+				color: #ff4d35;
+			}
+			&:last-child {
+				border: 1px solid #000;
+				background: linear-gradient(45deg, #ff663e 0%, #ff1515 100%);
+			}
+		}
+	}
+}

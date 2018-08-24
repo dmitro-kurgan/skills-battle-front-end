@@ -1,0 +1,88 @@
+* {
+	user-select: none;
+}
+.wrapper {
+	&--index {
+
+	}
+}
+.content {
+	height: 70vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.brands {
+	&__block {
+
+	}
+	&__item {
+		// height: 320px;
+		// line-height: 320px;
+		height: 220px;
+		line-height: 220px;
+		width: 33%;
+		float: left;
+		text-align: center;
+		border-right: 3px solid #e8e8e8;
+		transition: $main_transition;
+		@media screen and (max-height: 950px) {
+			height: 175px;
+			line-height: 175px;
+		}
+		@media screen and (max-height: 850px) {
+			height: 150px;
+			line-height: 150px;
+		}
+		a {
+			display: block;
+		}
+		&:hover {
+			box-shadow: -5px 2px 15px 10px rgba(0, 0, 0, 0.15);
+		}
+		&:nth-child(3n+ 3) {
+			border-right: none;
+		}
+		img {
+			max-width: 60%;
+			display: inline-block;
+			vertical-align: middle;
+			@media screen and (max-height: 850px) {
+				max-width: 50%;
+			}
+		}
+		
+		&--crypto {
+			span {
+				font: 400 normal 36px $Bukhari;
+			}
+		}
+		&--skills-battle {
+			span {
+				font: 800 normal 60px $CodePro;
+				text-transform: uppercase;
+				position: relative;
+				text-shadow: -7px 7px 7px rgba(0, 0, 0, 0.15);
+			}
+			i {
+				position: absolute;
+				top: 25px;
+				left: 0px;
+				right: 0px;
+				margin: auto;
+				text-transform: none;
+				font: 400 normal 63px $Barley;
+				background: linear-gradient(45deg, #ff1515 0%, #ff663e 100%);
+				@include addPrefix(background-clip, text);
+				-webkit-text-fill-color: transparent;
+			}
+		}
+	}
+}
+@for $i from 0 to 6 {
+	.brands {
+		&__item:nth-child(#{$i + 1}) {
+			border-bottom: 3px solid #e8e8e8;
+		}
+	}
+}

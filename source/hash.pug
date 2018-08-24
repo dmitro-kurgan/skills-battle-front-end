@@ -1,0 +1,30 @@
+extends ./templates/base
+
+block title
+	title Enter
+
+include ./templates/mixins
+
+block vars
+
+block main
+	.wrapper.wrapper--enter
+		+header()
+			block headTitle
+				.header__title
+					span Skills
+						i Battle
+		.content.container
+			section.enter
+				.enter__block
+					a(href="purchase.html").btn PURCHASE INTERNET HASH
+					a(href="return.html").btn RETURN INTERNET HASH
+		footer
+			.footer
+				.footer__content.container
+					.footer__left
+						a(href="enter.html").btn.btn--red back
+					.footer__center
+					.footer__right
+				.footer__bottom
+					p Status message...
